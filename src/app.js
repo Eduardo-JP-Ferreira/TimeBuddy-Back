@@ -1,15 +1,17 @@
-const express = require('express');
+import express from 'express';
+import cors from 'cors';
 
+// Criação do servidor
 const app = express();
 
-const PORT = process.env.PORT || 3000;
-
+// Configurações
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Bem-vindo ao TimeBuddy-Back!');
 });
 
-app.listen(PORT, () => {
-  console.log(`Servidor rodando em http://localhost:${PORT}`);
-});
+// Deixa o app escutando, à espera de requisições
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Servidor rodando na portaa ${PORT}`));
